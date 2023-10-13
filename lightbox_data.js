@@ -1,5 +1,5 @@
 let lightboxTitle = "My Western Vacation";
-let imgFiles = ["image01", "image02", "image03", "image04", "image05"];
+let imgFiles = ["image01.jpg", "image02.jpg", "image03.jpg", "image04.jpg", "image05.jpg"];
 let imgCount = imgFiles.length;
 let imgCaptions = new Array(5);
 imgCaptions[0] = "Picture taken in a sand beach.";
