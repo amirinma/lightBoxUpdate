@@ -43,6 +43,7 @@ function createLightbox(){
       timeID = window.setInterval(showNext, 1500);
     }
   }
+
   //design the lightbox images container
   lightBox.appendChild(lbImages);
   lbImages.id = "lbImages";
@@ -58,8 +59,6 @@ function createLightbox(){
    lbImages.appendChild(lbImages.firstElementChild);
    (currentImg < imgCount)? currentImg ++ : currentImg = 1;
    lbCounter.textContent = currentImg + " / " + imgCount;
-   console.log(lbImages)
-    console.log(currentImg)
   }
  //function to move backward through the images list
   function showPrev(){
@@ -67,5 +66,36 @@ function createLightbox(){
     (currentImg > 1) ? currentImg -- : currentImg = imgCount;
     lbCounter.textContent = currentImg + " / " + imgCount;
   }
-}
+// opening a new browser tab
+  lightBox.appendChild(document.createElement("button")).setAttribute("id", "btn");
+  document.getElementById("btn").textContent = "Open New Window";
+
+ document.getElementById("btn").onclick = openWindow;
+
+ function openWindow(){
+   let newWind = window.open("", "Wind", "width = 400, height = 400, toolbar = 0, manubar = 0, scrollbars = 0, status = 0");
+   let mainHeading = document.createElement("h1");
+   mainHeading.textContent = "My Slideshow";
+   let closeBtn = document.createElement("button");
+   newWind.document.body.appendChild(mainHeading)
+   newWind.document.body.appendChild(closeBtn).setAttribute("id", "closeBtn");
+   closeBtn.textContent = "Close it!";
+  closeBtn.onclick = function (){window.close()};
+
+   function closeFu(){console.log("Hellow Close")}
+
+console.log("closed" + window.closed)
+  console.log("document" + window.document)
+  console.log(window.history)
+  console.log(window.innerHeight)
+  console.log(window.innerWidth)
+  console.log(window.location)
+  console.log(window.name)
+  console.log(window.navigator)
+  console.log(window.outerHeight)
+  console.log(window.outerWidth)
+  console.log(window.screen)
+  console.log(window.statusbar)
+
+}}
 
