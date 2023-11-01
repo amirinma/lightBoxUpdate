@@ -52,7 +52,9 @@ function createLightbox(){
     let image = document.createElement("img");
     image.src = imgFiles[i];
     image.alt = imgCaptions[i];
+   image.onclick = createOverlay;
     lbImages.appendChild(image);
+
   }
  //function to move forward through the images list
   function showNext(){
@@ -84,18 +86,40 @@ function createLightbox(){
 
    function closeFu(){console.log("Hellow Close")}
 
-console.log("closed" + window.closed)
-  console.log("document" + window.document)
-  console.log(window.history)
-  console.log(window.innerHeight)
-  console.log(window.innerWidth)
-  console.log(window.location)
-  console.log(window.name)
-  console.log(window.navigator)
-  console.log(window.outerHeight)
-  console.log(window.outerWidth)
-  console.log(window.screen)
-  console.log(window.statusbar)
+ console.log("test" + this)
 
-}}
+
+  }
+  function createOverlay(){
+   let overlay = document.createElement("div");
+   overlay.id = "lbOverlay";
+   //add the figure box to the overlay
+    let figureBox = document.createElement("figure");
+    overlay.appendChild(figureBox);
+    //add the image to the figure box
+    let overlayImage = this.cloneNode(true);
+    figureBox.appendChild(overlayImage);
+    //add the caption to the figure box
+    let overlayCaption = document.createElement("figcaption");
+    overlayCaption.textContent = this.alt;
+    figureBox.appendChild(overlayCaption);
+    // add a close button to the overlay
+    let closeBox = document.createElement("div");
+    closeBox.id = "lbOverlayClose";
+    closeBox.innerHTML = "&times";
+    closeBox.onclick = function (){
+      document.body.removeChild(overlay);
+    }
+    overlay.appendChild(closeBox)
+
+    document.body.appendChild(overlay);
+    console.log(("I was clicked!"))
+    console.log(overlay)
+    console.log(figureBox)
+    console.log(document.body)
+  }
+  window.alert("Welcom!");
+ window.confirm("Do you play?");
+ window.prompt("Do you play?", "Yes");
+}
 

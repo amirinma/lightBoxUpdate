@@ -10,9 +10,7 @@ imgCaptions[4] = "Picture taken in Richmond guest house.";
 
 let node = document.getElementById("ul");
 node.className = "my_class";
-console.log(node)
-console.log(document.getElementsByClassName("my_class"))
-console.log(document.querySelectorAll("ul"))
+
 
 
 
